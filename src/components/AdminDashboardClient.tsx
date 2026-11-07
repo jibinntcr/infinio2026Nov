@@ -28,9 +28,12 @@ interface AdminProps {
   initialData: {
     engine?: string;
     dbMode?: string;
+    services?: any[];
+    testimonials?: any[];
     projects: any[];
     inquiries: any[];
     articles: any[];
+    [key: string]: any;
   };
 }
 

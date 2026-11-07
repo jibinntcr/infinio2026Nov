@@ -34,10 +34,13 @@ interface SiteProps {
   initialData: {
     engine?: string;
     dbMode?: string;
+    services?: any[];
+    testimonials?: any[];
     projects: any[];
     inquiries: any[];
     articles: any[];
     offices?: any[];
+    [key: string]: any;
   };
 }
 
