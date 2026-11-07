@@ -1,0 +1,482 @@
+{
+  "services": [
+    {
+      "slug": "software-development",
+      "code": "SRV // 01",
+      "title": "Software Development",
+      "subtitle": "Custom enterprise architectures engineered for zero-friction scale.",
+      "description": "Custom software solutions tailored to your exact business logic. We combine agile engineering sprints with deterministic backend architecture for timely, resilient delivery.",
+      "category": "engineering",
+      "capabilities": [
+        {
+          "name": "Bespoke Enterprise Platforms",
+          "detail": "When off-the-shelf software falls short, we architect custom ERP, CRM, and operational platforms around the exact way your company works."
+        },
+        {
+          "name": "Agile Sprints & Microservices",
+          "detail": "Iterative, transparent delivery cycles with modular Node.js, Python, and cloud-native APIs built to evolve without technical debt."
+        },
+        {
+          "name": "Cross-Platform Mobile & Web Apps",
+          "detail": "Unified product ecosystems that synchronize field operations, customer portals, and executive analytics in real time."
+        }
+      ],
+      "metrics": "99.98% Uptime · Agile Sprint Delivery",
+      "accentColor": "#5df2d6",
+      "order": 1
+    },
+    {
+      "slug": "web-development",
+      "code": "SRV // 02",
+      "title": "Web & 3D Experiential",
+      "subtitle": "From solid corporate architectures to visionary WebGL digital worlds.",
+      "description": "Responsive, lightning-fast websites, high-converting e-commerce stores, and spatial 3D WebGL experiences that turn visitors into lifelong clients.",
+      "category": "engineering",
+      "capabilities": [
+        {
+          "name": "Experiential 3D & WebGL Sites",
+          "detail": "For brands that want to leave an unforgettable mark — custom Three.js shaders, spatial storytelling, and fluid 60fps motion."
+        },
+        {
+          "name": "High-Conversion E-Commerce",
+          "detail": "Online stores engineered to sell around the clock with instant checkout flows, inventory sync, and unmistakable brand identity."
+        },
+        {
+          "name": "UI/UX & Search Dominance (SEO/GEO)",
+          "detail": "We study how users move, remove every detour, and structure semantic code to rank at the top of Google and AI search engines."
+        }
+      ],
+      "metrics": "<0.8s LCP · Spatial WebGL & Next.js",
+      "accentColor": "#54a0ff",
+      "order": 2
+    },
+    {
+      "slug": "digital-transformation",
+      "code": "SRV // 03",
+      "title": "Digital Transformation & AI",
+      "subtitle": "We take the repetitive weight off your hands. Zero operational errors.",
+      "description": "Integration of digital technologies and autonomous AI workflows into every area of your business to accelerate efficiency and eliminate manual data entry.",
+      "category": "intelligence",
+      "capabilities": [
+        {
+          "name": "Process Automation & Orchestration",
+          "detail": "The software tools you already use start talking to each other automatically — data flows seamlessly with zero human copy-pasting."
+        },
+        {
+          "name": "Enterprise AI Agents & Knowledge Memory",
+          "detail": "Custom-trained AI assistants connected to your internal documents, quotations, and CRM to surface answers and execute tasks in seconds."
+        },
+        {
+          "name": "Legacy System Modernization",
+          "detail": "Transforming fragmented spreadsheets and aging databases into a single, real-time digital command center."
+        }
+      ],
+      "metrics": "70% Less Manual Overhead · Zero Data Drift",
+      "accentColor": "#d8b48c",
+      "order": 3
+    },
+    {
+      "slug": "cloud-services",
+      "code": "SRV // 04",
+      "title": "Cloud Services & DevOps",
+      "subtitle": "Elastic cloud infrastructure for storage, compute, and global collaboration.",
+      "description": "Scalable multi-cloud architectures and zero-downtime migration services that ensure a seamless transition and bullet-proof reliability.",
+      "category": "intelligence",
+      "capabilities": [
+        {
+          "name": "Zero-Downtime Cloud Migration",
+          "detail": "End-to-end assessment, containerization, and migration of on-premise workloads to AWS, Google Cloud, and Azure."
+        },
+        {
+          "name": "Distributed Storage & Compute",
+          "detail": "Auto-scaling clusters, MongoDB Atlas distributed data layers, and edge caching for instant performance across India, UAE, and beyond."
+        },
+        {
+          "name": "Automated CI/CD & Observability",
+          "detail": "Continuous deployment pipelines with real-time telemetry, automated rollbacks, and cost-optimized cloud governance."
+        }
+      ],
+      "metrics": "Multi-Region India & UAE · Auto-Scaling",
+      "accentColor": "#5df2d6",
+      "order": 4
+    },
+    {
+      "slug": "it-consulting",
+      "code": "SRV // 05",
+      "title": "IT Consulting & Strategy",
+      "subtitle": "Clarity before code. Architectural blueprints that prevent costly detours.",
+      "description": "Expert advisory on IT strategy, infrastructure optimization, and system architecture — finding where work gets stuck before deciding what to build.",
+      "category": "engineering",
+      "capabilities": [
+        {
+          "name": "Bottleneck & Architecture Audits",
+          "detail": "Every company has its own hidden friction. We step into your workflows, audit your current IT stack, and map the highest-ROI improvements."
+        },
+        {
+          "name": "Fractional CTO & Technical Roadmaps",
+          "detail": "Vendor-neutral technology selection, scalability planning, and engineering governance for fast-growing enterprises."
+        },
+        {
+          "name": "Infrastructure Optimization",
+          "detail": "Consolidating redundant licenses, hardening network topologies, and maximizing performance per rupee/dirham spent."
+        }
+      ],
+      "metrics": "360° System Audit · ROI-Driven Roadmaps",
+      "accentColor": "#54a0ff",
+      "order": 5
+    },
+    {
+      "slug": "cybersecurity",
+      "code": "SRV // 06",
+      "title": "Cybersecurity & Academy",
+      "subtitle": "Hardened enterprise defense and industry-aligned technical training.",
+      "description": "Comprehensive security assessments, penetration testing, and specialized workforce/student training via the Infinio Learning Portal.",
+      "category": "intelligence",
+      "capabilities": [
+        {
+          "name": "VAPT & Security Posture Assessments",
+          "detail": "Proactive vulnerability assessment, penetration testing, and compliance hardening to protect mission-critical data."
+        },
+        {
+          "name": "Zero-Trust & Incident Readiness",
+          "detail": "End-to-end encryption, identity access management, and continuous threat monitoring across cloud and on-premise endpoints."
+        },
+        {
+          "name": "Infinio Academy & Moodle Learning",
+          "detail": "Work-integrated internships, ethical hacking labs, and full-stack engineering cohorts that train the next generation of tech talent."
+        }
+      ],
+      "metrics": "24/7 Threat Defense · Moodle LMS Portal",
+      "accentColor": "#d8b48c",
+      "order": 6
+    }
+  ],
+  "projects": [
+    {
+      "slug": "newply-enterprise-suite",
+      "indexCode": "WRK // 01",
+      "client": "Newply",
+      "location": "Kerala, India",
+      "year": "2025",
+      "category": "Enterprise Web & ERP Integration",
+      "tagline": "Digital manufacturing showcase and automated distributor ordering architecture.",
+      "description": "A high-precision digital platform and inventory workflow built for Newply. We replaced fragmented product catalogs with an interactive architectural specification portal.",
+      "architectureNote": "Custom Next.js frontend paired with real-time dealer inquiry routing and automated catalog indexing.",
+      "deliverables": [
+        "Corporate Web Architecture",
+        "Distributor Portal",
+        "SEO & Performance Optimization"
+      ],
+      "metrics": [
+        {
+          "label": "Load Speed",
+          "value": "0.6s"
+        },
+        {
+          "label": "Dealer Inquiries",
+          "value": "+210%"
+        }
+      ],
+      "palette": {
+        "primary": "#091518",
+        "secondary": "#5df2d6",
+        "glow": "#3898ff"
+      },
+      "featured": true,
+      "order": 1
+    },
+    {
+      "slug": "zamra-international-kochi",
+      "indexCode": "WRK // 02",
+      "client": "Zamra International",
+      "location": "Kochi, Kerala",
+      "year": "2025",
+      "category": "Digital Transformation & Cloud",
+      "tagline": "Multi-year digital transformation partner powering cross-border trade operations.",
+      "description": "Built to unify Zamra International’s expanding operations in Kochi. Our long-term engineering partnership spans web presence, cloud infrastructure, and automated client workflows.",
+      "architectureNote": "Multi-region cloud deployment with automated document pipelines and high-availability client dashboards.",
+      "deliverables": [
+        "Cloud Migration",
+        "Custom Workflow Software",
+        "Corporate Digital Platform"
+      ],
+      "metrics": [
+        {
+          "label": "Partnership",
+          "value": "5+ Yrs"
+        },
+        {
+          "label": "Uptime",
+          "value": "99.99%"
+        }
+      ],
+      "palette": {
+        "primary": "#0b101b",
+        "secondary": "#54a0ff",
+        "glow": "#5df2d6"
+      },
+      "featured": true,
+      "order": 2
+    },
+    {
+      "slug": "finder-sports-dubai",
+      "indexCode": "WRK // 03",
+      "client": "Finder Sports",
+      "location": "Dubai, UAE",
+      "year": "2026",
+      "category": "E-Commerce & Digital Growth",
+      "tagline": "High-velocity sports commerce and digital brand architecture in Dubai.",
+      "description": "Engineered for Finder Sports in Dubai to capture the GCC athletic market. Combines an obsidian-grade visual experience with deterministic conversion funnels and real-time analytics.",
+      "architectureNote": "Edge-cached storefront, multilingual GCC readiness, and automated CRM lead synchronization.",
+      "deliverables": [
+        "Experiential Web Store",
+        "GCC Digital Strategy",
+        "Analytics & Conversion Engine"
+      ],
+      "metrics": [
+        {
+          "label": "Conversion Lift",
+          "value": "+165%"
+        },
+        {
+          "label": "Region",
+          "value": "Dubai UAE"
+        }
+      ],
+      "palette": {
+        "primary": "#14110b",
+        "secondary": "#d8b48c",
+        "glow": "#54a0ff"
+      },
+      "featured": true,
+      "order": 3
+    },
+    {
+      "slug": "leads-venture-lab",
+      "indexCode": "WRK // 04",
+      "client": "LEADS' Venture Lab",
+      "location": "Malappuram, Kerala",
+      "year": "2025",
+      "category": "Venture Platform & Digital Marketing",
+      "tagline": "Growth engineering and digital ecosystem for a premier startup incubator.",
+      "description": "Designed and scaled the digital presence and acquisition engine for LEADS' Venture Lab, connecting founders, mentors, and investors through a unified platform.",
+      "architectureNote": "Full-funnel SEO/GEO architecture, cohort application workflows, and high-impact visual storytelling.",
+      "deliverables": [
+        "Incubator Web Platform",
+        "Cohort Application System",
+        "Search & Growth Engine"
+      ],
+      "metrics": [
+        {
+          "label": "Organic Reach",
+          "value": "3.4x"
+        },
+        {
+          "label": "Cohort Signups",
+          "value": "+180%"
+        }
+      ],
+      "palette": {
+        "primary": "#091416",
+        "secondary": "#5df2d6",
+        "glow": "#d8b48c"
+      },
+      "featured": true,
+      "order": 4
+    },
+    {
+      "slug": "mudra-publications-thrissur",
+      "indexCode": "WRK // 05",
+      "client": "Mudra Publications",
+      "location": "Thrissur, Kerala",
+      "year": "2025",
+      "category": "Publishing Cloud & Web Platform",
+      "tagline": "Modernizing heritage publishing in Thrissur with cloud distribution and digital reach.",
+      "description": "Transformed Mudra Publications’ catalog and audience engagement with a fast, accessible web platform and targeted digital growth campaigns.",
+      "architectureNote": "Structured catalog schema, high-contrast editorial typography, and automated inquiry routing.",
+      "deliverables": [
+        "Digital Catalog Platform",
+        "Search Engine Optimization",
+        "Audience Analytics"
+      ],
+      "metrics": [
+        {
+          "label": "Page Speed",
+          "value": "99/100"
+        },
+        {
+          "label": "Reader Reach",
+          "value": "+240%"
+        }
+      ],
+      "palette": {
+        "primary": "#121018",
+        "secondary": "#54a0ff",
+        "glow": "#d8b48c"
+      },
+      "featured": true,
+      "order": 5
+    },
+    {
+      "slug": "infinio-academy-moodle",
+      "indexCode": "WRK // 06",
+      "client": "Infinio Learning Portal",
+      "location": "Kochi · Thrissur · Online",
+      "year": "2026",
+      "category": "EdTech · Cybersecurity & Full-Stack LMS",
+      "tagline": "Work-integrated learning cloud powering hands-on internships and cybersecurity labs.",
+      "description": "Our proprietary Moodle-powered learning ecosystem delivering live engineering cohorts, ethical hacking sandboxes, and verifiable skill credentials.",
+      "architectureNote": "Dedicated cloud cluster with role-based lab provisioning, progress telemetry, and mentor workflows.",
+      "deliverables": [
+        "Moodle LMS Architecture",
+        "Cybersecurity Lab Integration",
+        "Student Credential Engine"
+      ],
+      "metrics": [
+        {
+          "label": "Active Learners",
+          "value": "2,500+"
+        },
+        {
+          "label": "Placement Tracks",
+          "value": "6 Core"
+        }
+      ],
+      "palette": {
+        "primary": "#081615",
+        "secondary": "#5df2d6",
+        "glow": "#54a0ff"
+      },
+      "featured": true,
+      "liveUrl": "https://216.10.251.254/infinio/login/index.php",
+      "order": 6
+    }
+  ],
+  "testimonials": [
+    {
+      "clientName": "Muhsin K H",
+      "company": "Newply",
+      "location": "Kerala",
+      "quote": "We are very satisfied clients and we would be happy to recommend Infinio! Their engineering precision transformed how we present our products.",
+      "role": "Managing Partner",
+      "rating": 5,
+      "order": 1
+    },
+    {
+      "clientName": "Executive Directorate",
+      "company": "Zamra International",
+      "location": "Kochi",
+      "quote": "As the years pass, our bond with Infinio is getting stronger and stronger. A truly dependable technology partner for every stage of our growth.",
+      "role": "Enterprise Partner",
+      "rating": 5,
+      "order": 2
+    },
+    {
+      "clientName": "Operations Team",
+      "company": "Finder Sports",
+      "location": "Dubai, UAE",
+      "quote": "Team Infinio strives to satisfy client demands. Their company is trustworthy since it consistently delivers exceptional outcomes on schedule.",
+      "role": "Dubai Leadership",
+      "rating": 5,
+      "order": 3
+    },
+    {
+      "clientName": "Program Director",
+      "company": "LEADS' Venture Lab",
+      "location": "Malappuram",
+      "quote": "One of the best digital engineering and marketing teams in today’s industry striving to give us the best results! Thank you.",
+      "role": "Venture Lab Lead",
+      "rating": 5,
+      "order": 4
+    },
+    {
+      "clientName": "Editorial Board",
+      "company": "Mudra Publications",
+      "location": "Thrissur",
+      "quote": "Exceptional commitment to quality and measurable digital growth. Infinio brought clarity and speed to our entire online presence.",
+      "role": "Publishing Director",
+      "rating": 5,
+      "order": 5
+    }
+  ],
+  "articles": [
+    {
+      "slug": "order-is-not-control",
+      "chapterCode": "THK // 01",
+      "title": "Order is not control. It is making space.",
+      "subtitle": "Why stripping away visual and architectural noise makes mission-critical software weigh more.",
+      "excerpt": "We look at every enterprise project like a plane covered in scattered fragments. Having a vision means seeing the finished system before moving the first block.",
+      "body": [
+        "We approach every digital transformation like a field of scattered operational fragments. Spreadsheets, disconnected ERPs, slow websites, and manual handoffs are simply the starting raw material.",
+        "Michelangelo sculpted by extracting the form already hidden inside an unshaped block of marble. At Infinio Technology Solutions, we engineer software the same way: by removing every unnecessary detour until only pure utility remains.",
+        "In this 3D space, we kept obsidian darkness, clean ivory typography, and the signature Infinio cyan-blue circuit glow. When you strip away the noise, what remains carries real weight."
+      ],
+      "readTime": "3 MIN READ",
+      "theme": "visione",
+      "order": 1
+    },
+    {
+      "slug": "the-illusion-of-static-order",
+      "chapterCode": "THK // 02",
+      "title": "The illusion of static order.",
+      "subtitle": "Markets shift, traffic spikes, threats evolve. Our job is building systems that hold when disorder returns.",
+      "excerpt": "If you scroll to the very end of this site, the fragments recompose and return to the beginning. Anyone who promises you eternal static software is selling an illusion.",
+      "body": [
+        "Everything you see in this space is suspended in an infinite void because business complexity never stops evolving. Markets shift in Dubai, operations expand in Kochi, new security threats emerge overnight.",
+        "Anyone who promises you a \"set-and-forget\" static system is selling an illusion. Our craft at Infinio is engineering cloud architectures, cybersecurity postures, and agile software that hold firm when disorder inevitably returns.",
+        "Chaos is not our enemy — it is the raw matter from which resilient systems are born. We step inside it, find the underlying logic, and restore order."
+      ],
+      "readTime": "4 MIN READ",
+      "theme": "caos",
+      "order": 2
+    },
+    {
+      "slug": "everything-starts-from-one-fragment",
+      "chapterCode": "THK // 03",
+      "title": "Everything starts from a single module.",
+      "subtitle": "Alone, a cube is a silent block in the void. Joined by the right logic, it becomes an infinite system.",
+      "excerpt": "No complex platform is born whole. It is constructed one validated microservice, one shader, and one automation at a time.",
+      "body": [
+        "No enterprise platform is born whole. It is built one resilient fragment at a time — a single API endpoint, a single database schema, a single automated workflow.",
+        "That is why our emblem is the hexagonal infinity loop built from modular geometric segments. Alone, a block is silent. United with others by deterministic logic, it becomes an unstoppable ecosystem.",
+        "Here inside Infinio’s 3D universe, you can click to send a shockwave or hold to shatter the monolith into fragments — and watch it reassemble a breath later. Taking what is scattered and restoring its meaning is, quite literally, what we do."
+      ],
+      "readTime": "3 MIN READ",
+      "theme": "cubi",
+      "order": 3
+    }
+  ],
+  "inquiries": [
+    {
+      "_id": "inq-seed-1",
+      "name": "Muhsin K H",
+      "email": "contact@newply.in",
+      "phone": "+91 98460 00001",
+      "company": "Newply",
+      "location": "Kerala, India",
+      "serviceNeeded": "Web & 3D Experiential",
+      "projectStage": "Scaling Existing Platform",
+      "budgetRange": "₹5L – ₹15L / $10k – $25k",
+      "timeline": "1–2 Months",
+      "message": "Looking to expand our distributor portal with real-time 3D product configurators and ERP sync.",
+      "status": "scheduled",
+      "createdAt": "2026-11-01T10:30:00.000Z"
+    },
+    {
+      "_id": "inq-seed-2",
+      "name": "Rashid Al Maktoum",
+      "email": "ops@findersports.ae",
+      "phone": "+971 55 625 9175",
+      "company": "Finder Sports",
+      "location": "Dubai, UAE",
+      "serviceNeeded": "Digital Transformation & AI",
+      "projectStage": "New Architecture",
+      "budgetRange": "$25k+",
+      "timeline": "Immediate",
+      "message": "We need autonomous inventory and WhatsApp order AI agents integrated with our Dubai warehouse.",
+      "status": "reviewing",
+      "createdAt": "2026-11-04T14:15:00.000Z"
+    }
+  ],
+  "lastUpdated": "2026-11-06T15:26:44.018Z"
+}
