@@ -64,6 +64,12 @@ export interface IArticle {
   category: string;
   readTime: string;
   publishedAt: string;
+  author?: string;
+  authorRole?: string;
+  coverImage?: string;
+  tags?: string[];
+  seoTitle?: string;
+  seoDescription?: string;
   excerpt: string;
   body: string[];
 }
@@ -98,7 +104,7 @@ const ServiceSchema = new Schema<IService>(
         detail: { type: String, required: true },
       },
     ],
-    accentColor: { type: String, default: '#5df2d6' },
+    accentColor: { type: String, default: '#1a73e8' },
     metrics: { type: String, default: '' },
     order: { type: Number, default: 0 },
   },
@@ -124,7 +130,7 @@ const ProjectSchema = new Schema<IProject>(
       },
     ],
     liveUrl: { type: String },
-    accent: { type: String, default: '#d8b48c' },
+    accent: { type: String, default: '#1a73e8' },
     featured: { type: Boolean, default: true },
     order: { type: Number, default: 0 },
   },
@@ -154,6 +160,12 @@ const ArticleSchema = new Schema<IArticle>(
     category: { type: String, required: true },
     readTime: { type: String, required: true },
     publishedAt: { type: String, required: true },
+    author: { type: String, default: 'Infinio Engineering' },
+    authorRole: { type: String, default: 'Systems Architecture Team' },
+    coverImage: { type: String, default: '/photos/infinio-team.jpg' },
+    tags: [{ type: String }],
+    seoTitle: { type: String },
+    seoDescription: { type: String },
     excerpt: { type: String, required: true },
     body: [{ type: String }],
   },

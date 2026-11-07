@@ -1,21 +1,14 @@
-import { NextRequest, NextResponse } from 'next/server';
+import { NextResponse } from 'next/server';
 import {
-  getSiteData,
   createInquiryRecord,
   updateInquiryStatusRecord,
+  deleteInquiryRecord,
 } from '@/lib/db-store';
+import { getAuthenticatedAdmin } from '@/lib/auth';
 
-export async function GET() {
-  const data = await getSiteData();
-  return NextResponse.json({
-    engine: data.engine,
-    inquiries: data.inquiries,
-  });
-}
-
-export async function POST(req: NextRequest) {
+export async function POST(request: Request) {
   try {
-    const body = await req.json();
+    const body = await request.json();
     const {
       name,
       email,
@@ -23,15 +16,17 @@ export async function POST(req: NextRequest) {
       company,
       location,
       serviceNeeded,
+      serviceInterest,
       projectStage,
       budgetRange,
+      budget,
       timeline,
       message,
     } = body;
 
     if (!name || !email || !message) {
       return NextResponse.json(
-        { error: 'Name, email, and project brief are required.' },
+        { error: 'Name, email, and project details are required.' },
         { status: 400 }
       );
     }
@@ -40,38 +35,61 @@ export async function POST(req: NextRequest) {
       name,
       email,
       phone: phone || '',
-      company: company || '',
-      location: location || '',
-      serviceNeeded: serviceNeeded || 'Software Development',
-      projectStage: projectStage || 'New Concept / Greenfield',
-      budgetRange: budgetRange || '₹3L – ₹10L / $5k – $15k',
-      timeline: timeline || '1 – 2 Months',
+      company: company || 'Enterprise Organization',
+      location: location || 'India / GCC',
+      serviceNeeded: serviceNeeded || serviceInterest || 'AI & Software Engineering',
+      projectStage: projectStage || 'Architecture & Delivery',
+      budgetRange: budgetRange || budget || 'Strategic Engagement',
+      timeline: timeline || '1 – 3 Months',
       message,
     });
 
     return NextResponse.json(result, { status: 201 });
-  } catch (err) {
+  } catch (error: any) {
     return NextResponse.json(
-      { error: err instanceof Error ? err.message : 'Failed to save inquiry' },
+      { error: error.message || 'Failed to save inquiry' },
       { status: 500 }
     );
   }
 }
 
-export async function PATCH(req: NextRequest) {
+export async function PATCH(request: Request) {
+  const admin = await getAuthenticatedAdmin();
+  if (!admin) {
+    return NextResponse.json({ error: 'Unauthorized. Admin login required.' }, { status: 401 });
+  }
   try {
-    const { id, status } = await req.json();
+    const body = await request.json();
+    const { id, status } = body;
     if (!id || !status) {
-      return NextResponse.json(
-        { error: 'Inquiry ID and status are required.' },
-        { status: 400 }
-      );
+      return NextResponse.json({ error: 'id and status are required' }, { status: 400 });
     }
     const updated = await updateInquiryStatusRecord(id, status);
     return NextResponse.json({ inquiry: updated });
-  } catch (err) {
+  } catch (error: any) {
     return NextResponse.json(
-      { error: err instanceof Error ? err.message : 'Failed to update inquiry' },
+      { error: error.message || 'Failed to update inquiry' },
+      { status: 500 }
+    );
+  }
+}
+
+export async function DELETE(request: Request) {
+  const admin = await getAuthenticatedAdmin();
+  if (!admin) {
+    return NextResponse.json({ error: 'Unauthorized. Admin login required.' }, { status: 401 });
+  }
+  try {
+    const { searchParams } = new URL(request.url);
+    const id = searchParams.get('id');
+    if (!id) {
+      return NextResponse.json({ error: 'Inquiry ID is required' }, { status: 400 });
+    }
+    await deleteInquiryRecord(id);
+    return NextResponse.json({ success: true });
+  } catch (error: any) {
+    return NextResponse.json(
+      { error: error.message || 'Failed to delete inquiry' },
       { status: 500 }
     );
   }
