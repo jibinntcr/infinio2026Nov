@@ -33,6 +33,10 @@ export interface IProject {
   year: string;
   category: string;
   tagline: string;
+  requirement?: string;
+  contribution?: string;
+  outcome?: string;
+  logo?: string;
   description: string;
   architectureNote: string;
   deliverables: string[];
@@ -51,6 +55,8 @@ export interface ITestimonial {
   location: string;
   quote: string;
   projectTag: string;
+  avatar?: string;
+  logo?: string;
   rating: number;
   order: number;
 }
@@ -104,7 +110,7 @@ const ServiceSchema = new Schema<IService>(
         detail: { type: String, required: true },
       },
     ],
-    accentColor: { type: String, default: '#1a73e8' },
+    accentColor: { type: String, default: '#2563eb' },
     metrics: { type: String, default: '' },
     order: { type: Number, default: 0 },
   },
@@ -120,6 +126,10 @@ const ProjectSchema = new Schema<IProject>(
     year: { type: String, required: true },
     category: { type: String, required: true },
     tagline: { type: String, required: true },
+    requirement: { type: String },
+    contribution: { type: String },
+    outcome: { type: String },
+    logo: { type: String },
     description: { type: String, required: true },
     architectureNote: { type: String, required: true },
     deliverables: [{ type: String }],
@@ -130,7 +140,7 @@ const ProjectSchema = new Schema<IProject>(
       },
     ],
     liveUrl: { type: String },
-    accent: { type: String, default: '#1a73e8' },
+    accent: { type: String, default: '#2563eb' },
     featured: { type: Boolean, default: true },
     order: { type: Number, default: 0 },
   },
@@ -145,6 +155,8 @@ const TestimonialSchema = new Schema<ITestimonial>(
     location: { type: String, required: true },
     quote: { type: String, required: true },
     projectTag: { type: String, required: true },
+    avatar: { type: String },
+    logo: { type: String },
     rating: { type: Number, default: 5 },
     order: { type: Number, default: 0 },
   },
@@ -162,7 +174,7 @@ const ArticleSchema = new Schema<IArticle>(
     publishedAt: { type: String, required: true },
     author: { type: String, default: 'Infinio Engineering' },
     authorRole: { type: String, default: 'Systems Architecture Team' },
-    coverImage: { type: String, default: '/photos/infinio-team.jpg' },
+    coverImage: { type: String, default: '/images/infinio-logo.png' },
     tags: [{ type: String }],
     seoTitle: { type: String },
     seoDescription: { type: String },

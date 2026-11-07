@@ -34,12 +34,18 @@ const DATA_FILE = path.join(DATA_DIR, 'mongo-store.json');
 
 function normalizeArticles(rawArticles: IArticle[] | undefined): IArticle[] {
   if (!rawArticles || rawArticles.length === 0) return SEED_ARTICLES;
-  // Ensure every article has publishedAt, category, code, author, tags
   const hasFullBlogSchema = rawArticles.every(
-    (a) => a.publishedAt && a.category && a.author
+    (a) => a.publishedAt && a.category && a.author && !a.title.includes('70%') && !a.title.includes('Rank #1')
   );
   if (!hasFullBlogSchema) return SEED_ARTICLES;
   return rawArticles;
+}
+
+function normalizeProjects(rawProjects: IProject[] | undefined): IProject[] {
+  if (!rawProjects || rawProjects.length === 0) return SEED_PROJECTS;
+  const hasEvidenceFields = rawProjects.every((p) => p.requirement && p.contribution);
+  if (!hasEvidenceFields) return SEED_PROJECTS;
+  return rawProjects;
 }
 
 function readLocalStore(): LocalStoreSchema {
@@ -48,11 +54,9 @@ function readLocalStore(): LocalStoreSchema {
       const raw = fs.readFileSync(DATA_FILE, 'utf-8');
       const parsed = JSON.parse(raw);
       return {
-        services: parsed.services?.length ? parsed.services : SEED_SERVICES,
-        projects: parsed.projects?.length ? parsed.projects : SEED_PROJECTS,
-        testimonials: parsed.testimonials?.length
-          ? parsed.testimonials
-          : SEED_TESTIMONIALS,
+        services: SEED_SERVICES,
+        projects: normalizeProjects(parsed.projects),
+        testimonials: SEED_TESTIMONIALS,
         articles: normalizeArticles(parsed.articles),
         inquiries: parsed.inquiries?.length ? parsed.inquiries : SEED_INQUIRIES,
       };
@@ -84,18 +88,18 @@ function writeLocalStore(data: LocalStoreSchema) {
 // Keep an in-memory mirror so serverless instances reflect writes immediately even without local disk write
 declare global {
   // eslint-disable-next-line no-var
-  var __infinioMemoryStore: LocalStoreSchema | undefined;
+  var __infinioMemoryStoreV2: LocalStoreSchema | undefined;
 }
 
 function getStore(): LocalStoreSchema {
-  if (!global.__infinioMemoryStore) {
-    global.__infinioMemoryStore = readLocalStore();
+  if (!global.__infinioMemoryStoreV2) {
+    global.__infinioMemoryStoreV2 = readLocalStore();
   }
-  return global.__infinioMemoryStore;
+  return global.__infinioMemoryStoreV2;
 }
 
 function saveStore(next: LocalStoreSchema) {
-  global.__infinioMemoryStore = next;
+  global.__infinioMemoryStoreV2 = next;
   writeLocalStore(next);
 }
 

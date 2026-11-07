@@ -14,7 +14,8 @@ const jetbrainsMono = JetBrains_Mono({
   weight: ["400", "500", "600"],
 });
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://app-sepia-tau-ngxwehnvd9.vercel.app";
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || "https://app-sepia-tau-ngxwehnvd9.vercel.app";
 
 export const viewport: Viewport = {
   themeColor: "#ffffff",
@@ -25,22 +26,21 @@ export const viewport: Viewport = {
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
   title: {
-    default: "Infinio Technology Solutions | Enterprise AI, Cloud & Custom Software (Kochi, Thrissur, Dubai)",
+    default:
+      "Infinio Technology Solutions | Software, Automation & Web Engineering (Kochi, Thrissur, Dubai)",
     template: "%s | Infinio Technology Solutions",
   },
   description:
-    "Infinio Technology Solutions engineers enterprise AI agents, custom cloud-native platforms, mobile applications, and ERP modernization from Kochi (CIAL Aero Park), Thrissur, and Dubai.",
+    "Infinio Technology Solutions helps businesses design, build, and improve custom software, web platforms, cloud infrastructure, and digital automation across Kochi, Thrissur, and Dubai.",
   keywords: [
     "Infinio Technology Solutions",
     "Infinio Kochi",
     "Infinio Thrissur",
     "Software Company Kochi CIAL Aero Park",
-    "Enterprise AI Development India",
-    "Custom Software Engineering Kerala",
-    "RAG & Agentic AI Workflows",
-    "Next.js MongoDB Cloud Architecture",
-    "Mobile App Development Kochi Dubai",
-    "Digital Transformation GCC India",
+    "Software Development Thrissur",
+    "Web Design and Development Kerala",
+    "Digital Transformation Dubai UAE",
+    "Cloud Services and Moodle LMS Kerala",
   ],
   authors: [{ name: "Infinio Technology Solutions", url: SITE_URL }],
   creator: "Infinio Technology Solutions",
@@ -64,15 +64,15 @@ export const metadata: Metadata = {
     locale: "en_US",
     url: SITE_URL,
     siteName: "Infinio Technology Solutions",
-    title: "Infinio Technology Solutions | Understand Complexity. Engineer Intelligence.",
+    title: "Infinio Technology Solutions | Intelligent Technology. Practical Business Impact.",
     description:
-      "AI-native product engineering, cloud platforms, and enterprise software crafted by Infinio across Kochi (CIAL Aero Park), Thrissur, and Dubai.",
+      "Custom software, web platforms, cloud hosting, and workflow automation engineered across Kochi, Thrissur, and Dubai.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "Infinio Technology Solutions | Enterprise AI & Cloud Engineering",
+    title: "Infinio Technology Solutions | Software, Web & Automation",
     description:
-      "Custom software, AI agents, and cloud architecture built from Kochi, Thrissur & Dubai.",
+      "Infinio Technology Solutions helps businesses design, build, and improve software, automation, and digital experiences.",
   },
   category: "technology",
 };
@@ -85,31 +85,36 @@ const jsonLdSchema = {
       "@id": `${SITE_URL}/#organization`,
       name: "Infinio Technology Solutions",
       url: SITE_URL,
+      logo: `${SITE_URL}/images/infinio-logo.png`,
       email: "info@infinio.co.in",
-      telephone: "+91-484-298-4500",
-      foundingDate: "2015",
+      telephone: "+91-97454-50618",
+      foundingDate: "2016",
       description:
-        "Enterprise software engineering, agentic AI systems, cloud infrastructure, and digital product studio operating across Kochi, Thrissur, and Dubai.",
-      sameAs: [
-        "https://infinio.co.in",
-        "https://www.linkedin.com/company/infinio-technology-solutions",
-      ],
+        "Technology company providing custom software development, web design, cloud services, digital transformation, IT consulting, and cybersecurity & LMS training across Kochi, Thrissur, and Dubai.",
       address: [
         {
           "@type": "PostalAddress",
-          streetAddress: "First Floor, CIASL Business Centre, CIAL Aero Park, F-23A, Nedumbassery",
-          addressLocality: "Cochin",
+          streetAddress:
+            "First Floor, CIASL Business Centre, CIAL Aero Park, F-23A, Cochin International Airport, Nedumbassery",
+          addressLocality: "Kochi",
           addressRegion: "Kerala",
           postalCode: "683111",
           addressCountry: "IN",
         },
         {
           "@type": "PostalAddress",
-          streetAddress: "2nd Floor, Vimala Building, Near Ragam Theatre, Kuruppam Road",
+          streetAddress:
+            "2nd Floor, Vimala Building, Rice Bazar Road (Near St. Thomas College)",
           addressLocality: "Thrissur",
           addressRegion: "Kerala",
           postalCode: "680001",
           addressCountry: "IN",
+        },
+        {
+          "@type": "PostalAddress",
+          streetAddress: "Jebel Ali Industrial Area",
+          addressLocality: "Dubai",
+          addressCountry: "AE",
         },
       ],
     },
@@ -117,14 +122,15 @@ const jsonLdSchema = {
       "@type": "LocalBusiness",
       "@id": `${SITE_URL}/#kochi-studio`,
       name: "Infinio Technology Solutions — Kochi Studio",
+      image: `${SITE_URL}/images/infinio-logo.png`,
       url: SITE_URL,
-      telephone: "+91-484-298-4500",
+      telephone: "+91-97454-50618",
       email: "info@infinio.co.in",
-      priceRange: "$$$",
       address: {
         "@type": "PostalAddress",
-        streetAddress: "First Floor, CIASL Business Centre, CIAL Aero Park, F-23A, Nedumbassery",
-        addressLocality: "Cochin",
+        streetAddress:
+          "First Floor, CIASL Business Centre, CIAL Aero Park, F-23A, Cochin International Airport, Nedumbassery",
+        addressLocality: "Kochi",
         addressRegion: "Kerala",
         postalCode: "683111",
         addressCountry: "IN",
@@ -134,14 +140,6 @@ const jsonLdSchema = {
         latitude: 10.159,
         longitude: 76.3919,
       },
-      openingHoursSpecification: [
-        {
-          "@type": "OpeningHoursSpecification",
-          dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
-          opens: "09:00",
-          closes: "18:30",
-        },
-      ],
     },
     {
       "@type": "WebSite",
@@ -171,7 +169,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLdSchema) }}
         />
       </head>
-      <body className="min-h-screen bg-[#ffffff] text-[#1f1f1f] selection:bg-[#e8f0fe] selection:text-[#1a73e8]">
+      <body className="min-h-screen bg-[#ffffff] text-[#0f172a] selection:bg-[#e0f2fe] selection:text-[#0284c7]">
         {children}
       </body>
     </html>

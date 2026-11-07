@@ -1,9 +1,9 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
+import BrandLogo from '@/components/BrandLogo';
 import { getArticleBySlug, getSiteData } from '@/lib/db-store';
 import {
-  Sparkles,
   ArrowLeft,
   Clock,
   Calendar,
@@ -14,7 +14,8 @@ import {
 
 export const dynamic = 'force-dynamic';
 
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || 'https://app-sepia-tau-ngxwehnvd9.vercel.app';
+const SITE_URL =
+  process.env.NEXT_PUBLIC_SITE_URL || 'https://app-sepia-tau-ngxwehnvd9.vercel.app';
 
 export async function generateMetadata({
   params,
@@ -30,13 +31,18 @@ export async function generateMetadata({
     };
   }
 
-  const title = article.seoTitle || `${article.title} | Infinio Engineering Blog`;
-  const description = article.seoDescription || article.excerpt || (article as any).summary;
+  const title = article.seoTitle || `${article.title} | Infinio Insights`;
+  const description =
+    article.seoDescription || article.excerpt || (article as any).summary;
 
   return {
     title,
     description,
-    keywords: article.tags || ['Enterprise AI', 'Infinio Technology Solutions', 'Cloud Engineering'],
+    keywords: article.tags || [
+      'Custom Software',
+      'Infinio Technology Solutions',
+      'Web Engineering',
+    ],
     authors: [{ name: article.author || 'Infinio Engineering' }],
     alternates: {
       canonical: `/blog/${article.slug}`,
@@ -59,29 +65,30 @@ export async function generateMetadata({
 }
 
 function renderFormattedBlocks(article: any) {
-  const blocks: string[] = Array.isArray(article.body) && article.body.length > 0
-    ? article.body
-    : typeof article.content === 'string'
-    ? article.content.split('\n\n')
-    : [article.excerpt || ''];
+  const blocks: string[] =
+    Array.isArray(article.body) && article.body.length > 0
+      ? article.body
+      : typeof article.content === 'string'
+      ? article.content.split('\n\n')
+      : [article.excerpt || ''];
 
   return blocks.map((block, index) => {
     const trimmed = block.trim();
     if (trimmed.startsWith('### ')) {
       return (
-        <h3
+        <h2
           key={index}
-          className="mt-8 mb-3 text-[22px] font-bold tracking-tight text-[#1f1f1f]"
+          className="mt-8 mb-3 text-[22px] font-bold tracking-tight text-[#0f172a]"
         >
           {trimmed.replace('### ', '')}
-        </h3>
+        </h2>
       );
     }
     if (trimmed.startsWith('## ')) {
       return (
         <h2
           key={index}
-          className="mt-10 mb-4 text-[26px] font-bold tracking-tight text-[#1f1f1f]"
+          className="mt-10 mb-4 text-[24px] font-bold tracking-tight text-[#0f172a]"
         >
           {trimmed.replace('## ', '')}
         </h2>
@@ -92,16 +99,18 @@ function renderFormattedBlocks(article: any) {
       return (
         <ul
           key={index}
-          className="my-5 space-y-2.5 rounded-2xl border border-[#e3e8ef] bg-[#f8fafd] p-6"
+          className="my-5 space-y-2.5 rounded-2xl border border-[#e2e8f0] bg-[#f8fafc] p-6"
         >
           {lines.map((line, idx) => (
             <li
               key={idx}
-              className="flex items-start gap-3 text-[16px] leading-[1.65] text-[#3c4043]"
+              className="flex items-start gap-3 text-[15px] leading-[1.65] text-[#334155]"
             >
-              <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#1a73e8]" />
+              <CheckCircle2 className="mt-1 h-4 w-4 shrink-0 text-[#0d9488]" />
               <span>
-                {line.replace(/^(-|\d+\.)\s+/, '').replace(/\*\*(.*?)\*\*/g, '$1')}
+                {line
+                  .replace(/^(-|\d+\.)\s+/, '')
+                  .replace(/\*\*(.*?)\*\*/g, '$1')}
               </span>
             </li>
           ))}
@@ -109,7 +118,7 @@ function renderFormattedBlocks(article: any) {
       );
     }
     return (
-      <p key={index} className="my-5 text-[17px] leading-[1.78] text-[#3c4043]">
+      <p key={index} className="my-5 text-[16px] leading-[1.75] text-[#334155]">
         {trimmed}
       </p>
     );
@@ -133,7 +142,8 @@ export default async function BlogArticlePage({
     .filter((a: any) => a.slug !== article.slug)
     .slice(0, 2);
 
-  const summaryText = article.excerpt || (article as any).summary || article.subtitle;
+  const summaryText =
+    article.excerpt || (article as any).summary || article.subtitle;
 
   const jsonLd = {
     '@context': 'https://schema.org',
@@ -141,14 +151,17 @@ export default async function BlogArticlePage({
     headline: article.title,
     description: article.seoDescription || summaryText,
     author: {
-      '@type': 'Person',
-      name: article.author || 'Infinio Engineering Practice',
-      jobTitle: article.authorRole || 'Principal Architect',
+      '@type': 'Organization',
+      name: article.author || 'Infinio Engineering Team',
     },
     publisher: {
       '@type': 'Organization',
       name: 'Infinio Technology Solutions',
       url: SITE_URL,
+      logo: {
+        '@type': 'ImageObject',
+        url: `${SITE_URL}/images/infinio-logo.png`,
+      },
     },
     datePublished: article.publishedAt || new Date().toISOString(),
     mainEntityOfPage: {
@@ -159,79 +172,74 @@ export default async function BlogArticlePage({
   };
 
   return (
-    <div className="min-h-screen bg-[#ffffff] text-[#1f1f1f]">
+    <div className="min-h-screen bg-[#ffffff] text-[#0f172a]">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
       />
 
-      {/* Top Bar */}
-      <header className="sticky top-0 z-40 border-b border-[#e3e8ef] bg-white/90 backdrop-blur-xl">
-        <div className="mx-auto flex max-w-[1120px] items-center justify-between px-5 py-4 sm:px-8">
+      {/* Top Bar with Official Logo */}
+      <header className="sticky top-0 z-40 border-b border-[#e2e8f0] bg-white/95 backdrop-blur-md">
+        <div className="mx-auto flex max-w-[1120px] items-center justify-between px-4 py-3.5 sm:px-8">
+          <BrandLogo size="sm" href="/" />
+
           <Link
             href="/blog"
-            className="inline-flex items-center gap-2 text-[14px] font-semibold text-[#444746] transition-colors hover:text-[#1f1f1f]"
+            className="inline-flex items-center gap-2 text-[13px] font-semibold text-[#334155] transition-colors hover:text-[#0f172a]"
           >
             <ArrowLeft className="h-4 w-4" />
-            All Engineering Articles
-          </Link>
-
-          <Link href="/" className="flex items-center gap-2.5">
-            <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[#1f1f1f] text-white">
-              <Sparkles className="h-3.5 w-3.5 text-[#8ab4f8]" />
-            </div>
-            <span className="text-[16px] font-bold text-[#1f1f1f]">Infinio</span>
+            All Insights
           </Link>
 
           <Link
-            href="/"
-            className="rounded-full bg-[#1f1f1f] px-4 py-2 text-[13px] font-semibold text-white hover:bg-[#303134]"
+            href="/#contact"
+            className="rounded-full bg-[#0f172a] px-4 py-2 text-[13px] font-semibold text-white hover:bg-[#1e293b]"
           >
-            Discuss Architecture
+            Discuss Your Project
           </Link>
         </div>
       </header>
 
       {/* Article Container */}
-      <article className="mx-auto max-w-[820px] px-5 pt-12 pb-20 sm:px-8 sm:pt-16">
+      <article className="mx-auto max-w-[820px] px-4 pt-10 pb-20 sm:px-8 sm:pt-14">
         <div className="flex flex-wrap items-center gap-3">
-          <span className="rounded-full bg-[#e8f0fe] px-3.5 py-1 text-[12px] font-semibold text-[#1a73e8]">
+          <span className="rounded-full bg-[#e0f2fe] px-3.5 py-1 text-[12px] font-bold text-[#0284c7]">
             {article.category}
           </span>
-          <span className="inline-flex items-center gap-1.5 text-[13px] text-[#5f6368]">
+          <span className="inline-flex items-center gap-1.5 text-[13px] text-[#475569]">
             <Clock className="h-3.5 w-3.5" />
             {article.readTime}
           </span>
-          <span className="inline-flex items-center gap-1.5 text-[13px] text-[#5f6368]">
+          <span className="inline-flex items-center gap-1.5 text-[13px] text-[#475569]">
             <Calendar className="h-3.5 w-3.5" />
             {article.publishedAt || 'Nov 2026'}
           </span>
         </div>
 
-        <h1 className="mt-6 text-[34px] leading-[1.15] font-bold tracking-[-0.03em] text-[#1f1f1f] sm:text-[46px]">
+        <h1 className="mt-5 text-[30px] leading-[1.18] font-extrabold tracking-[-0.025em] text-[#0f172a] sm:text-[42px]">
           {article.title}
         </h1>
 
-        <p className="mt-5 text-[19px] leading-[1.6] font-normal text-[#444746]">
+        <p className="mt-4 text-[18px] leading-[1.6] font-normal text-[#334155]">
           {summaryText}
         </p>
 
         {/* Author Bar */}
-        <div className="mt-8 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#e3e8ef] bg-[#f8fafd] p-5">
+        <div className="mt-7 flex flex-wrap items-center justify-between gap-4 rounded-2xl border border-[#e2e8f0] bg-[#f8fafc] p-5">
           <div className="flex items-center gap-3.5">
-            <div className="flex h-11 w-11 items-center justify-center rounded-full bg-[#1f1f1f] text-[14px] font-bold text-white">
-              {(article.author || 'IA')
+            <div className="flex h-10 w-10 items-center justify-center rounded-full bg-[#0f172a] text-[13px] font-bold text-white">
+              {(article.author || 'IE')
                 .split(' ')
                 .map((w: string) => w[0])
                 .join('')
                 .slice(0, 2)}
             </div>
             <div>
-              <p className="text-[14px] font-bold text-[#1f1f1f]">
-                {article.author || 'Infinio Engineering Practice'}
+              <p className="text-[14px] font-bold text-[#0f172a]">
+                {article.author || 'Infinio Engineering Team'}
               </p>
-              <p className="text-[12px] text-[#5f6368]">
-                {article.authorRole || 'Kochi CIAL Aero Park & Dubai Studios'}
+              <p className="text-[12px] text-[#475569]">
+                {article.authorRole || 'Kochi, Thrissur & Dubai'}
               </p>
             </div>
           </div>
@@ -240,9 +248,9 @@ export default async function BlogArticlePage({
             {(article.tags || []).map((tag: string) => (
               <span
                 key={tag}
-                className="inline-flex items-center gap-1 rounded-full border border-[#e3e8ef] bg-white px-3 py-1 text-[11px] font-medium text-[#444746]"
+                className="inline-flex items-center gap-1 rounded-full border border-[#e2e8f0] bg-white px-3 py-1 text-[11px] font-semibold text-[#334155]"
               >
-                <Tag className="h-3 w-3 text-[#1a73e8]" />
+                <Tag className="h-3 w-3 text-[#0d9488]" />
                 {tag}
               </span>
             ))}
@@ -250,55 +258,55 @@ export default async function BlogArticlePage({
         </div>
 
         {/* Main Body */}
-        <div className="mt-10 border-t border-[#e3e8ef] pt-8">
+        <div className="mt-8 border-t border-[#e2e8f0] pt-6">
           {renderFormattedBlocks(article)}
         </div>
 
         {/* CTA Banner inside Blog */}
-        <div className="mt-14 rounded-[28px] border border-[#d3e3fd] bg-[#f0f4f9] p-8 sm:p-10">
-          <h3 className="text-[24px] font-bold text-[#1f1f1f]">
-            Building a similar architecture for your organization?
-          </h3>
-          <p className="mt-2 text-[15px] leading-[1.6] text-[#444746]">
-            Partner with Infinio’s engineering squads in Kochi (CIAL Aero Park), Thrissur, and Dubai to take your AI or cloud platform from blueprint to production.
+        <div className="mt-12 rounded-[24px] border border-[#bae6fd] bg-[#f0f9ff] p-7 sm:p-9">
+          <h2 className="text-[22px] font-bold text-[#0f172a]">
+            Planning a software, web, or automation project?
+          </h2>
+          <p className="mt-2 text-[15px] leading-[1.6] text-[#334155]">
+            Speak with Infinio’s engineering teams in Kochi (CIAL Aero Park), Thrissur, or Dubai to scope your requirements clearly.
           </p>
-          <div className="mt-6 flex flex-wrap gap-3">
+          <div className="mt-5 flex flex-wrap gap-3">
             <Link
-              href="/"
-              className="inline-flex items-center gap-2 rounded-full bg-[#1f1f1f] px-6 py-3 text-[14px] font-semibold text-white hover:bg-[#303134]"
+              href="/#contact"
+              className="inline-flex items-center gap-2 rounded-full bg-[#0f172a] px-6 py-3 text-[14px] font-semibold text-white hover:bg-[#1e293b]"
             >
-              Schedule an Architecture Review
+              Discuss Your Project
               <ArrowUpRight className="h-4 w-4" />
             </Link>
             <Link
               href="/blog"
-              className="inline-flex items-center gap-2 rounded-full border border-[#dadce0] bg-white px-6 py-3 text-[14px] font-semibold text-[#1f1f1f] hover:bg-[#f8fafd]"
+              className="inline-flex items-center gap-2 rounded-full border border-[#cbd5e1] bg-white px-6 py-3 text-[14px] font-semibold text-[#0f172a] hover:bg-[#f8fafc]"
             >
-              Browse More Articles
+              Browse All Articles
             </Link>
           </div>
         </div>
 
         {/* Related Articles */}
         {relatedArticles.length > 0 && (
-          <div className="mt-16 border-t border-[#e3e8ef] pt-12">
-            <h3 className="text-[20px] font-bold text-[#1f1f1f]">
-              Continue Reading
-            </h3>
-            <div className="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+          <div className="mt-14 border-t border-[#e2e8f0] pt-10">
+            <h2 className="text-[20px] font-bold text-[#0f172a]">
+              More Insights
+            </h2>
+            <div className="mt-5 grid grid-cols-1 gap-5 sm:grid-cols-2">
               {relatedArticles.map((rel: any) => (
                 <Link
                   key={rel.slug}
                   href={`/blog/${rel.slug}`}
-                  className="group rounded-[24px] border border-[#e3e8ef] bg-[#f8fafd] p-6 transition-all hover:border-[#c2d7fa] hover:bg-white"
+                  className="group rounded-[20px] border border-[#e2e8f0] bg-[#f8fafc] p-6 transition-all hover:border-[#bae6fd] hover:bg-white"
                 >
-                  <span className="text-[11px] font-semibold text-[#1a73e8]">
+                  <span className="text-[11px] font-bold text-[#0284c7]">
                     {rel.category}
                   </span>
-                  <h4 className="mt-2 text-[17px] font-bold text-[#1f1f1f] group-hover:text-[#1a73e8]">
+                  <h3 className="mt-2 text-[17px] font-bold text-[#0f172a] group-hover:text-[#2563eb]">
                     {rel.title}
-                  </h4>
-                  <p className="mt-2 line-clamp-2 text-[13px] text-[#5f6368]">
+                  </h3>
+                  <p className="mt-2 line-clamp-2 text-[13px] text-[#475569]">
                     {rel.excerpt || rel.summary}
                   </p>
                 </Link>

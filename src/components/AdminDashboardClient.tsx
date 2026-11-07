@@ -3,8 +3,8 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
+import BrandLogo from './BrandLogo';
 import {
-  Sparkles,
   LogOut,
   Inbox,
   FileText,
@@ -238,19 +238,12 @@ export default function AdminDashboardClient({ admin, initialData }: AdminProps)
       <header className="sticky top-0 z-40 border-b border-[#e3e8ef] bg-white/95 backdrop-blur-md">
         <div className="mx-auto flex max-w-[1320px] items-center justify-between px-5 py-4 sm:px-8">
           <div className="flex items-center gap-3">
-            <Link href="/" className="flex items-center gap-2.5">
-              <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#1f1f1f] text-white">
-                <Sparkles className="h-4 w-4 text-[#8ab4f8]" />
-              </div>
-              <span className="text-[18px] font-bold tracking-tight text-[#1f1f1f]">
-                Infinio
-              </span>
-            </Link>
-            <span className="rounded-full bg-[#e8f0fe] px-3 py-1 text-[11px] font-bold text-[#1a73e8]">
+            <BrandLogo size="sm" href="/" />
+            <span className="rounded-full bg-[#e0f2fe] px-3 py-1 text-[11px] font-bold text-[#0284c7]">
               Admin Portal
             </span>
-            <span className="hidden items-center gap-1.5 rounded-full border border-[#e3e8ef] bg-[#f8fafd] px-3 py-1 text-[11px] font-medium text-[#5f6368] sm:inline-flex">
-              <Database className="h-3 w-3 text-[#137333]" />
+            <span className="hidden items-center gap-1.5 rounded-full border border-[#e2e8f0] bg-[#f8fafc] px-3 py-1 text-[11px] font-medium text-[#475569] sm:inline-flex">
+              <Database className="h-3 w-3 text-[#0d9488]" />
               DB: {initialData.engine || initialData.dbMode || 'mongodb-hybrid'}
             </span>
           </div>
